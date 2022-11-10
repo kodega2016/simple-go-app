@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+)
 
 func main() {
 	// var card string = "Ace of Spades"
@@ -32,6 +35,20 @@ func main() {
 	// messages := remainingCards.toString()
 	// fmt.Println([]byte(messages))
 
+	fmt.Println("===================================")
+
 	remainingCards.saveToFile("remainingCard.txt")
+	res, isOk := ioutil.ReadFile("cards.txt")
+
+	if isOk == nil {
+		fmt.Println("reading files...")
+		fmt.Println(string(res))
+
+	}
+
+	fmt.Println("===================================")
+
+	newDeck := newDeckFromFile("cadrds.txt")
+	fmt.Println("new deck from file:", newDeck.toString())
 
 }
