@@ -15,12 +15,15 @@ func main() {
 	fmt.Println("=========================")
 	fmt.Println(cards.toString())
 
+	cards.saveToFile("cards.txt")
+
 	hand, remainingCards := deal(cards, 5)
 
 	fmt.Println("Card on hands:")
 	fmt.Println("=========================")
 
 	fmt.Println(hand.toString())
+	hand.saveToFile("hands.txt")
 
 	fmt.Println("Remaning cards:")
 	fmt.Println("=========================")
@@ -28,5 +31,7 @@ func main() {
 
 	// messages := remainingCards.toString()
 	// fmt.Println([]byte(messages))
+
+	remainingCards.saveToFile("remainingCard.txt")
 
 }
